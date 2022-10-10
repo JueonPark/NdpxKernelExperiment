@@ -1,5 +1,7 @@
 #!/bin/bash
-echo $SYNC
+
+RESUBMIT=1
+
 SIMULATOR_DIR=/home/jueonpark/cxl-simulator
 SIMULATOR_BINARY_DIR=$SIMULATOR_DIR/multi_gpu_simulator/gpu-simulator/bin/release
 
@@ -15,7 +17,6 @@ UNOPT_CSV_PATH=$CSV_FILES/unoptimized_kernels.csv
 echo "NAME,LINES,SHAPE,CYCLE" > $OPT_CSV_PATH
 ls $OPT_RESULT_DIR | while read line 
 do
-    echo "line: $line"
     TARGET_TRACE=$OPT_TRACE_DIR/$line/GPU_0/$line"*"
     LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
     LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
@@ -25,12 +26,10 @@ do
     CYCLE_CNT=`cat GPU_0.out | grep -c "tot_sim_cycle"`
     CYCLE=`cat sim_result.out | grep "NDP kernel" | grep "launched" | awk '{print($11)}'` 
     CYCLE2=`cat sim_result.out | grep "NDP kernel" | grep "finished" | awk '{print($11)}'` 
-    JOB_NAME="optimized_kernel-${line}"
-		echo $JOB_NAME
+    JOB_NAME="optimized_kernel${line}"
 
     RUNNING=`squeue --format "%.200j %u %i" | grep -w $JOB_NAME`
-    echo $RUNNING
-    if [ $CYCLE_CNT -ne 2 ]; then  
+    if [ $CYCLE_CNT -ne 1 ]; then  
         if [ -z "$RUNNING" ]; then
             echo "RUNNING NOT FOUND ${line}" 
             if [ "$RESUBMIT" = "1" ]; then
@@ -51,10 +50,10 @@ do
     popd
 done
 
+
 echo "NAME,LINES,SHAPE,CYCLE" > $UNOPT_CSV_PATH
 ls $UNOPT_RESULT_DIR | while read line 
 do
-    echo "line: $line"
     TARGET_TRACE=$UNOPT_TRACE_DIR/$line/GPU_0/$line"*"
     LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
     LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
@@ -64,12 +63,10 @@ do
     CYCLE_CNT=`cat GPU_0.out | grep -c "tot_sim_cycle"`
     CYCLE=`cat sim_result.out | grep "NDP kernel" | grep "launched" | awk '{print($11)}'` 
     CYCLE2=`cat sim_result.out | grep "NDP kernel" | grep "finished" | awk '{print($11)}'` 
-    JOB_NAME="optimized_kernel-${line}"
-		echo $JOB_NAME
+    JOB_NAME="unoptimized_kernel${line}"
 
     RUNNING=`squeue --format "%.200j %u %i" | grep -w $JOB_NAME`
-    echo $RUNNING
-    if [ $CYCLE_CNT -ne 2 ]; then  
+    if [ $CYCLE_CNT -ne 1 ]; then  
         if [ -z "$RUNNING" ]; then
             echo "RUNNING NOT FOUND ${line}" 
             if [ "$RESUBMIT" = "1" ]; then
@@ -89,4 +86,3 @@ do
     fi
     popd
 done
-

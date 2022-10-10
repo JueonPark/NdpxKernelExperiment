@@ -1,0 +1,7 @@
+*.log
+*.out
+*.err
+watch*
+*.txt
+*output*
+*release*
