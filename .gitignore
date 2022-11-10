@@ -5,3 +5,5 @@ watch*
 *.txt
 *output*
 *release*
+*.traceg
+*kernelslist*
