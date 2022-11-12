@@ -21,19 +21,27 @@ MEMORY_CSV_PATH=$CSV_FILES/$MODEL-memory.csv
 NUMBERING_CSV_PATH=$CSV_FILES/$MODEL-numbering.csv
 ALLOPT_CSV_PATH=$CSV_FILES/$MODEL-allopt.csv
 
-echo "NAME,LINES,SHAPE,CYCLE" > $NOOPT_CSV_PATH
+SIMD=8
+
+echo "NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE" > $NOOPT_CSV_PATH
 ls $NOOPT_RESULT_DIR | while read line 
 do
     TARGET_TRACE=$NOOPT_TRACE_DIR/$line/GPU_0/$line"*"
-    LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
-    LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
+    CALL_START=`cat -n $TARGET_TRACE | grep "CALL" | head -n1 | awk '{print($1)}'`
+    JOIN_START=`cat -n $TARGET_TRACE | grep "JOIN" | head -n1 | awk '{print($1)}'`
+    NUM_OP=$(( JOIN_START - CALL_START - 1 ))
+    INPUT=`grep -o -i LDM $TARGET_TRACE | wc -l`
+    INPUT=$((INPUT / SIMD))
+    OUTPUT=`grep -o -i STGG $TARGET_TRACE | wc -l`
+    OUTPUT=$((OUTPUT / SIMD))
+    NUM_OP=$(( NUM_OP - INPUT - OUTPUT ))
     SHAPE=`cat $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($3)}'`
 
     pushd $NOOPT_RESULT_DIR/$line/
     CYCLE_CNT=`cat GPU_0.out | grep -c "tot_sim_cycle"`
     CYCLE=`cat sim_result.out | grep "NDP kernel" | grep "launched" | awk '{print($11)}'` 
     CYCLE2=`cat sim_result.out | grep "NDP kernel" | grep "finished" | awk '{print($11)}'` 
-    JOB_NAME="optimized_kernel${line}"
+    JOB_NAME="$MODEL-noopt${line}"
 
     RUNNING=`squeue --format "%.200j %u %i" | grep -w $JOB_NAME`
     if [ $CYCLE_CNT -ne 1 ]; then  
@@ -47,29 +55,35 @@ do
         fi
         echo "NOT FOUND $line"
         echo `cat sim_result.out | tail -n1` 
-        echo $line,$(( LINE_END - LINE_START )),$SHAPE,"NOT FOUND" >> $NOOPT_CSV_PATH  ;
+        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,"NOT FOUND" >> $NOOPT_CSV_PATH  ;
     else    
         if [ -n "$RUNNING" ]; then
             echo "POSSIBLE DEADLOCK $line"
         fi
-        echo $line,$(( LINE_END - LINE_START )),$SHAPE,$(( CYCLE2 - CYCLE )) >> $NOOPT_CSV_PATH ;
+        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,$(( CYCLE2 - CYCLE )) >> $NOOPT_CSV_PATH ;
     fi
     popd
 done
 
-echo "NAME,LINES,SHAPE,CYCLE" > $MEMORY_CSV_PATH
+echo "NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE" > $MEMORY_CSV_PATH
 ls $MEMORY_RESULT_DIR | while read line 
 do
-    TARGET_TRACE=$UNOPT_TRACE_DIR/$line/GPU_0/$line"*"
-    LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
-    LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
+    TARGET_TRACE=$MEMORY_TRACE_DIR/$line/GPU_0/$line"*"
+    CALL_START=`cat -n $TARGET_TRACE | grep "CALL" | head -n1 | awk '{print($1)}'`
+    JOIN_START=`cat -n $TARGET_TRACE | grep "JOIN" | head -n1 | awk '{print($1)}'`
+    NUM_OP=$(( JOIN_START - CALL_START - 1 ))
+    INPUT=`grep -o -i LDM $TARGET_TRACE | wc -l`
+    INPUT=$((INPUT / SIMD))
+    OUTPUT=`grep -o -i STGG $TARGET_TRACE | wc -l`
+    OUTPUT=$((OUTPUT / SIMD))
+    NUM_OP=$(( NUM_OP - INPUT - OUTPUT ))
     SHAPE=`cat $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($3)}'`
 
     pushd $MEMORY_RESULT_DIR/$line/
     CYCLE_CNT=`cat GPU_0.out | grep -c "tot_sim_cycle"`
     CYCLE=`cat sim_result.out | grep "NDP kernel" | grep "launched" | awk '{print($11)}'` 
     CYCLE2=`cat sim_result.out | grep "NDP kernel" | grep "finished" | awk '{print($11)}'` 
-    JOB_NAME="unoptimized_kernel${line}"
+    JOB_NAME="$MODEL-memory${line}"
 
     RUNNING=`squeue --format "%.200j %u %i" | grep -w $JOB_NAME`
     if [ $CYCLE_CNT -ne 1 ]; then  
@@ -83,29 +97,35 @@ do
         fi
         echo "NOT FOUND $line"
         echo `cat sim_result.out | tail -n1` 
-        echo $line,$(( LINE_END - LINE_START )),$SHAPE,"NOT FOUND" >> $MEMORY_CSV_PATH  ;
+        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,"NOT FOUND" >> $MEMORY_CSV_PATH  ;
     else    
         if [ -n "$RUNNING" ]; then
             echo "POSSIBLE DEADLOCK $line"
         fi
-        echo $line,$(( LINE_END - LINE_START )),$SHAPE,$(( CYCLE2 - CYCLE )) >> $MEMORY_CSV_PATH ;
+        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,$(( CYCLE2 - CYCLE )) >> $MEMORY_CSV_PATH ;
     fi
     popd
 done
 
-echo "NAME,LINES,SHAPE,CYCLE" > $NUMBERING_CSV_PATH
+echo "NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE" > $NUMBERING_CSV_PATH
 ls $NUMBERING_RESULT_DIR | while read line 
 do
-    TARGET_TRACE=$UNOPT_TRACE_DIR/$line/GPU_0/$line"*"
-    LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
-    LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
+    TARGET_TRACE=$NUMBERING_TRACE_DIR/$line/GPU_0/$line"*"
+    CALL_START=`cat -n $TARGET_TRACE | grep "CALL" | head -n1 | awk '{print($1)}'`
+    JOIN_START=`cat -n $TARGET_TRACE | grep "JOIN" | head -n1 | awk '{print($1)}'`
+    NUM_OP=$(( JOIN_START - CALL_START - 1 ))
+    INPUT=`grep -o -i LDM $TARGET_TRACE | wc -l`
+    INPUT=$((INPUT / SIMD))
+    OUTPUT=`grep -o -i STGG $TARGET_TRACE | wc -l`
+    OUTPUT=$((OUTPUT / SIMD))
+    NUM_OP=$(( NUM_OP - INPUT - OUTPUT ))
     SHAPE=`cat $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($3)}'`
 
     pushd $NUMBERING_RESULT_DIR/$line/
     CYCLE_CNT=`cat GPU_0.out | grep -c "tot_sim_cycle"`
     CYCLE=`cat sim_result.out | grep "NDP kernel" | grep "launched" | awk '{print($11)}'` 
     CYCLE2=`cat sim_result.out | grep "NDP kernel" | grep "finished" | awk '{print($11)}'` 
-    JOB_NAME="unoptimized_kernel${line}"
+    JOB_NAME="$MODEL-numbering${line}"
 
     RUNNING=`squeue --format "%.200j %u %i" | grep -w $JOB_NAME`
     if [ $CYCLE_CNT -ne 1 ]; then  
@@ -119,29 +139,35 @@ do
         fi
         echo "NOT FOUND $line"
         echo `cat sim_result.out | tail -n1` 
-        echo $line,$(( LINE_END - LINE_START )),$SHAPE,"NOT FOUND" >> $NUMBERING_CSV_PATH  ;
+        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,"NOT FOUND" >> $NUMBERING_CSV_PATH  ;
     else    
         if [ -n "$RUNNING" ]; then
             echo "POSSIBLE DEADLOCK $line"
         fi
-        echo $line,$(( LINE_END - LINE_START )),$SHAPE,$(( CYCLE2 - CYCLE )) >> $NUMBERING_CSV_PATH ;
+        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,$(( CYCLE2 - CYCLE )) >> $NUMBERING_CSV_PATH ;
     fi
     popd
 done
 
-echo "NAME,LINES,SHAPE,CYCLE" > $ALLOPT_CSV_PATH
+echo "NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE" > $ALLOPT_CSV_PATH
 ls $ALLOPT_RESULT_DIR | while read line 
 do
-    TARGET_TRACE=$UNOPT_TRACE_DIR/$line/GPU_0/$line"*"
-    LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
-    LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
+    TARGET_TRACE=$ALLOPT_TRACE_DIR/$line/GPU_0/$line"*"
+    CALL_START=`cat -n $TARGET_TRACE | grep "CALL" | head -n1 | awk '{print($1)}'`
+    JOIN_START=`cat -n $TARGET_TRACE | grep "JOIN" | head -n1 | awk '{print($1)}'`
+    NUM_OP=$(( JOIN_START - CALL_START - 1 ))
+    INPUT=`grep -o -i LDM $TARGET_TRACE | wc -l`
+    INPUT=$((INPUT / SIMD))
+    OUTPUT=`grep -o -i STGG $TARGET_TRACE | wc -l`
+    OUTPUT=$((OUTPUT / SIMD))
+    NUM_OP=$(( NUM_OP - INPUT - OUTPUT ))
     SHAPE=`cat $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($3)}'`
 
     pushd $ALLOPT_RESULT_DIR/$line/
     CYCLE_CNT=`cat GPU_0.out | grep -c "tot_sim_cycle"`
     CYCLE=`cat sim_result.out | grep "NDP kernel" | grep "launched" | awk '{print($11)}'` 
     CYCLE2=`cat sim_result.out | grep "NDP kernel" | grep "finished" | awk '{print($11)}'` 
-    JOB_NAME="unoptimized_kernel${line}"
+    JOB_NAME="$MODEL-allopt${line}"
 
     RUNNING=`squeue --format "%.200j %u %i" | grep -w $JOB_NAME`
     if [ $CYCLE_CNT -ne 1 ]; then  
@@ -155,12 +181,12 @@ do
         fi
         echo "NOT FOUND $line"
         echo `cat sim_result.out | tail -n1` 
-        echo $line,$(( LINE_END - LINE_START )),$SHAPE,"NOT FOUND" >> $ALLOPT_CSV_PATH  ;
+        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,"NOT FOUND" >> $ALLOPT_CSV_PATH  ;
     else    
         if [ -n "$RUNNING" ]; then
             echo "POSSIBLE DEADLOCK $line"
         fi
-        echo $line,$(( LINE_END - LINE_START )),$SHAPE,$(( CYCLE2 - CYCLE )) >> $ALLOPT_CSV_PATH ;
+        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,$(( CYCLE2 - CYCLE )) >> $ALLOPT_CSV_PATH ;
     fi
     popd
 done

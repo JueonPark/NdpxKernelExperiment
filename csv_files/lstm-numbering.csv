@@ -1,11 +1,11 @@
-NAME,LINES,SHAPE,CYCLE
-_NDP_custom-call_0,0,,358
-_NDP_custom-call.1_0,0,,2296
-_NDP_custom-call.2_0,0,,361
-_NDP_custom-call.3_0,0,,371
-_NDP_custom-call.4_0,0,,2184
-_NDP_custom-call.5_0,0,,NOT FOUND
-_NDP_custom-call.6_0,0,,219069
-_NDP_custom-call.7_0,0,,186752
-_NDP_custom-call.8_0,0,,189293
-_NDP_custom-call.9_0,0,,191463
+NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE
+_NDP_custom-call_0,0x20,2,1,2,358
+_NDP_custom-call.1_0,0x4000,2,1,2,2296
+_NDP_custom-call.2_0,0x20,3,1,2,361
+_NDP_custom-call.3_0,0x20,2,2,10,371
+_NDP_custom-call.4_0,0x3b00,3,1,9,2184
+_NDP_custom-call.5_0,0x162000,5,1,12,255585
+_NDP_custom-call.6_0,0x162000,3,1,8,219069
+_NDP_custom-call.7_0,0x162000,2,1,4,186752
+_NDP_custom-call.8_0,0x162000,2,1,4,189293
+_NDP_custom-call.9_0,0x162000,2,1,4,191463

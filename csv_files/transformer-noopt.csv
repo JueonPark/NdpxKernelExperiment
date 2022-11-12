@@ -1,114 +1,101 @@
-NAME,LINES,SHAPE,CYCLE
-_NDP_custom-call_0,8,0x20,NOT FOUND
-_NDP_custom-call.108_0,9,0x200,NOT FOUND
-_NDP_custom-call.109_0,9,0x200,NOT FOUND
-_NDP_custom-call.110_0,9,0x200,NOT FOUND
-_NDP_custom-call.111_0,9,0x200,NOT FOUND
-_NDP_custom-call.112_0,9,0x200,NOT FOUND
-_NDP_custom-call.113_0,9,0x200,NOT FOUND
-_NDP_custom-call.114_0,9,0x200,NOT FOUND
-_NDP_custom-call.115_0,9,0x400,NOT FOUND
-_NDP_custom-call.116_0,9,0x200,NOT FOUND
-_NDP_custom-call.117_0,9,0x200,NOT FOUND
-_NDP_custom-call.118_0,9,0x400,NOT FOUND
-_NDP_custom-call.119_0,9,0x200,NOT FOUND
-_NDP_custom-call.120_0,9,0x200,NOT FOUND
-_NDP_custom-call.121_0,9,0x200,NOT FOUND
-_NDP_custom-call.122_0,9,0x200,NOT FOUND
-_NDP_custom-call.123_0,9,0x400,NOT FOUND
-_NDP_custom-call.124_0,9,0x200,NOT FOUND
-_NDP_custom-call.125_0,9,0x200,NOT FOUND
-_NDP_custom-call.126_0,9,0x200,NOT FOUND
-_NDP_custom-call.127_0,12,0x100,NOT FOUND
-_NDP_custom-call.128_0,33,0x18000,NOT FOUND
-_NDP_custom-call.129_0,43,0x18000,NOT FOUND
-_NDP_custom-call.130_0,43,0x18000,NOT FOUND
-_NDP_custom-call.131_0,33,0x18000,NOT FOUND
-_NDP_custom-call.132_0,43,0x18000,NOT FOUND
-_NDP_custom-call.133_0,33,0x18000,NOT FOUND
-_NDP_custom-call.134_0,33,0x18000,NOT FOUND
-_NDP_custom-call.135_0,43,0x18000,NOT FOUND
-_NDP_custom-call.136_0,13,0x3000,NOT FOUND
-_NDP_custom-call.137_0,9,0x200,NOT FOUND
-_NDP_custom-call.138_0,43,0x18000,NOT FOUND
-_NDP_custom-call.139_0,33,0x18000,NOT FOUND
-_NDP_custom-call.140_0,43,0x18000,NOT FOUND
-_NDP_custom-call.141_0,33,0x18000,NOT FOUND
-_NDP_custom-call.142_0,22,0x20,NOT FOUND
-_NDP_custom-call.143_0,9,0x200,NOT FOUND
-_NDP_custom-call.144_0,9,0x200,NOT FOUND
-_NDP_custom-call.145_0,9,0x200,NOT FOUND
-_NDP_custom-call.146_0,9,0x200,NOT FOUND
-_NDP_custom-call.147_0,9,0x3000,NOT FOUND
-_NDP_custom-call.148_0,9,0x3000,NOT FOUND
-_NDP_custom-call.149_0,9,0x3000,NOT FOUND
-_NDP_custom-call.150_0,9,0x200,NOT FOUND
-_NDP_custom-call.151_0,9,0x3000,NOT FOUND
-_NDP_custom-call.152_0,9,0x3000,NOT FOUND
-_NDP_custom-call.153_0,9,0x3000,NOT FOUND
-_NDP_custom-call.154_0,9,0x3000,NOT FOUND
-_NDP_custom-call.155_0,9,0x3000,NOT FOUND
-_NDP_custom-call.156_0,9,0x3000,NOT FOUND
-_NDP_custom-call.157_0,9,0x3000,NOT FOUND
-_NDP_custom-call.158_0,9,0x3000,NOT FOUND
-_NDP_custom-call.159_0,9,0x3000,NOT FOUND
-_NDP_custom-call.160_0,9,0x3000,NOT FOUND
-_NDP_custom-call.161_0,9,0x3000,NOT FOUND
-_NDP_custom-call.163_0,9,0x3000,NOT FOUND
-_NDP_custom-call.164_0,9,0x200,NOT FOUND
-_NDP_custom-call.165_0,9,0x200,NOT FOUND
-_NDP_custom-call.166_0,9,0x200,NOT FOUND
-_NDP_custom-call.167_0,9,0x200,NOT FOUND
-_NDP_custom-call.168_0,9,0x200,NOT FOUND
-_NDP_custom-call.169_0,9,0x400,NOT FOUND
-_NDP_custom-call.170_0,9,0x200,NOT FOUND
-_NDP_custom-call.171_0,9,0x3000,NOT FOUND
-_NDP_custom-call.172_0,9,0x3000,NOT FOUND
-_NDP_custom-call.173_0,9,0x3000,NOT FOUND
-_NDP_custom-call.174_0,9,0x3000,NOT FOUND
-_NDP_custom-call.175_0,9,0x3000,NOT FOUND
-_NDP_custom-call.176_0,9,0x3000,NOT FOUND
-_NDP_custom-call.177_0,9,0x3000,NOT FOUND
-_NDP_custom-call.178_0,9,0x3000,NOT FOUND
-_NDP_custom-call.179_0,9,0x3000,NOT FOUND
-_NDP_custom-call.180_0,9,0x3000,NOT FOUND
-_NDP_custom-call.181_0,55,0x18000,NOT FOUND
-_NDP_custom-call.182_0,35,0x3000,NOT FOUND
-_NDP_custom-call.183_0,35,0x3000,NOT FOUND
-_NDP_custom-call.184_0,55,0x18000,NOT FOUND
-_NDP_custom-call.185_0,35,0x3000,NOT FOUND
-_NDP_custom-call.186_0,35,0x3000,NOT FOUND
-_NDP_custom-call.187_0,55,0x18000,NOT FOUND
-_NDP_custom-call.188_0,35,0x3000,NOT FOUND
-_NDP_custom-call.189_0,55,0x18000,NOT FOUND
-_NDP_custom-call.190_0,35,0x3000,NOT FOUND
-_NDP_custom-call.191_0,55,0x18000,NOT FOUND
-_NDP_custom-call.192_0,35,0x3000,NOT FOUND
-_NDP_custom-call.194_0,9,0x2b0000,NOT FOUND
-_NDP_custom-call.195_0,13,0x2e0000,NOT FOUND
-_NDP_custom-call.197_0,13,0x2e0000,NOT FOUND
-_NDP_custom-call.198_0,13,0x2b0000,NOT FOUND
-_NDP_custom-call.199_0,13,0x2b0000,NOT FOUND
-_NDP_custom-call.200_0,13,0x2e0000,NOT FOUND
-_NDP_custom-call.201_0,13,0x2b0000,NOT FOUND
-_NDP_custom-call.203_0,13,0x2b0000,NOT FOUND
-_NDP_custom-call.204_0,66,0x1cc000,NOT FOUND
-_NDP_custom-call.205_0,8,0x300000,NOT FOUND
-_NDP_custom-call.206_0,8,0x300000,NOT FOUND
-_NDP_custom-call.207_0,8,0x300000,NOT FOUND
-_NDP_custom-call.208_0,8,0x300000,NOT FOUND
-_NDP_custom-call.209_0,336,0x200,NOT FOUND
-_NDP_custom-call.9_1_NdpEwiseFusedSeq$fusion.8,7,0x18000,NOT FOUND
-_ON_THE_FLY_READ_custom-call_0_NdpEwiseFusedSeq$fusion.traceg,0,,NOT FOUND
-_ON_THE_FLY_READ_custom-call.10_0_NdpEwiseFusedSeq$custom-call.3.traceg,0,,NOT FOUND
-_ON_THE_FLY_READ_custom-call.162_0_NdpEwiseFusedSeq$fusion.382.traceg,0,,NOT FOUND
-_ON_THE_FLY_READ_custom-call.3_0_NdpEwiseFusedSeq$fusion.10.traceg,0,,NOT FOUND
-_ON_THE_FLY_READ_custom-call.4_0_NdpEwiseFusedSeq$custom-call.3.traceg,0,,NOT FOUND
-_ON_THE_FLY_READ_custom-call.4_0_NdpEwiseFusedSeq$fusion.3.traceg,0,,NOT FOUND
-_ON_THE_FLY_READ_custom-call.5_0_NdpEwiseFusedSeq$custom-call.3.traceg,0,,NOT FOUND
-_ON_THE_FLY_READ_custom-call.5_0_NdpEwiseFusedSeq$fusion.6.traceg,0,,NOT FOUND
-_ON_THE_FLY_READ_custom-call.6_0_NdpEwiseFusedSeq$fusion.14.traceg,0,,NOT FOUND
-_ON_THE_FLY_READ_custom-call.6_0_NdpEwiseFusedSeq$fusion.15.traceg,0,,NOT FOUND
-_ON_THE_FLY_READ_custom-call.6_0_NdpEwiseFusedSeq$fusion.16.traceg,0,,NOT FOUND
-_ON_THE_FLY_READ_custom-call.7_0_NdpEwiseFusedSeq$fusion.14.traceg,0,,NOT FOUND
-_ON_THE_FLY_READ_custom-call.8_0_NdpEwiseFusedSeq$custom-call.3.traceg,0,,NOT FOUND
+NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE
+_NDP_custom-call_0,0x20,2,1,2,335
+_NDP_custom-call.108_0,0x200,2,1,2,368
+_NDP_custom-call.109_0,0x200,2,1,2,368
+_NDP_custom-call.110_0,0x200,2,1,2,368
+_NDP_custom-call.111_0,0x200,2,1,2,368
+_NDP_custom-call.112_0,0x200,2,1,2,368
+_NDP_custom-call.113_0,0x200,2,1,2,368
+_NDP_custom-call.114_0,0x200,2,1,2,368
+_NDP_custom-call.115_0,0x400,2,1,2,391
+_NDP_custom-call.116_0,0x200,2,1,2,368
+_NDP_custom-call.117_0,0x200,2,1,2,368
+_NDP_custom-call.118_0,0x400,2,1,2,391
+_NDP_custom-call.119_0,0x200,2,1,2,368
+_NDP_custom-call.120_0,0x200,2,1,2,368
+_NDP_custom-call.121_0,0x200,2,1,2,368
+_NDP_custom-call.122_0,0x200,2,1,2,368
+_NDP_custom-call.123_0,0x400,2,1,2,391
+_NDP_custom-call.124_0,0x200,2,1,2,368
+_NDP_custom-call.125_0,0x200,2,1,2,368
+_NDP_custom-call.126_0,0x200,2,1,2,368
+_NDP_custom-call.127_0,0x100,3,1,4,350
+_NDP_custom-call.128_0,0x18000,13,1,15,15059
+_NDP_custom-call.129_0,0x18000,18,1,21,10663
+_NDP_custom-call.130_0,0x18000,18,1,21,10840
+_NDP_custom-call.131_0,0x18000,13,1,15,15287
+_NDP_custom-call.132_0,0x18000,18,1,21,11163
+_NDP_custom-call.133_0,0x18000,13,1,15,15363
+_NDP_custom-call.134_0,0x18000,13,1,15,15041
+_NDP_custom-call.135_0,0x18000,18,1,21,10050
+_NDP_custom-call.136_0,0x3000,4,1,4,1785
+_NDP_custom-call.137_0,0x200,2,1,2,368
+_NDP_custom-call.138_0,0x18000,18,1,21,11653
+_NDP_custom-call.139_0,0x18000,13,1,15,15304
+_NDP_custom-call.140_0,0x18000,18,1,21,10780
+_NDP_custom-call.141_0,0x18000,13,1,15,15522
+_NDP_custom-call.142_0,0x20,8,2,9,378
+_NDP_custom-call.143_0,0x200,2,1,2,368
+_NDP_custom-call.144_0,0x200,2,1,2,368
+_NDP_custom-call.145_0,0x200,2,1,2,368
+_NDP_custom-call.146_0,0x200,2,1,2,381
+_NDP_custom-call.147_0,0x3000,2,1,2,1830
+_NDP_custom-call.148_0,0x3000,2,1,2,1830
+_NDP_custom-call.149_0,0x3000,2,1,2,1830
+_NDP_custom-call.150_0,0x200,2,1,2,368
+_NDP_custom-call.151_0,0x3000,2,1,2,1830
+_NDP_custom-call.152_0,0x3000,2,1,2,1830
+_NDP_custom-call.153_0,0x3000,2,1,2,1830
+_NDP_custom-call.154_0,0x3000,2,1,2,1830
+_NDP_custom-call.155_0,0x3000,2,1,2,1830
+_NDP_custom-call.156_0,0x3000,2,1,2,1830
+_NDP_custom-call.157_0,0x3000,2,1,2,1830
+_NDP_custom-call.158_0,0x3000,2,1,2,1830
+_NDP_custom-call.159_0,0x3000,2,1,2,1860
+_NDP_custom-call.160_0,0x3000,2,1,2,1830
+_NDP_custom-call.161_0,0x3000,2,1,2,1830
+_NDP_custom-call.163_0,0x3000,2,1,2,1830
+_NDP_custom-call.164_0,0x200,2,1,2,368
+_NDP_custom-call.165_0,0x200,2,1,2,368
+_NDP_custom-call.166_0,0x200,2,1,2,368
+_NDP_custom-call.167_0,0x200,2,1,2,368
+_NDP_custom-call.168_0,0x200,2,1,2,368
+_NDP_custom-call.169_0,0x400,2,1,2,391
+_NDP_custom-call.170_0,0x200,2,1,2,368
+_NDP_custom-call.171_0,0x3000,2,1,2,1830
+_NDP_custom-call.172_0,0x3000,2,1,2,1830
+_NDP_custom-call.173_0,0x3000,2,1,2,1865
+_NDP_custom-call.174_0,0x3000,2,1,2,1830
+_NDP_custom-call.175_0,0x3000,2,1,2,1865
+_NDP_custom-call.176_0,0x3000,2,1,2,1865
+_NDP_custom-call.177_0,0x3000,2,1,2,1831
+_NDP_custom-call.178_0,0x3000,2,1,2,1830
+_NDP_custom-call.179_0,0x3000,2,1,2,1865
+_NDP_custom-call.180_0,0x3000,2,1,2,1830
+_NDP_custom-call.181_0,0x18000,20,3,27,28054
+_NDP_custom-call.182_0,0x3000,14,0,18,1268
+_NDP_custom-call.183_0,0x3000,14,0,18,1182
+_NDP_custom-call.184_0,0x18000,20,3,27,28646
+_NDP_custom-call.185_0,0x3000,14,0,18,1327
+_NDP_custom-call.186_0,0x3000,14,0,18,1357
+_NDP_custom-call.187_0,0x18000,20,3,27,29789
+_NDP_custom-call.188_0,0x3000,14,0,18,1246
+_NDP_custom-call.189_0,0x18000,20,3,27,28457
+_NDP_custom-call.190_0,0x3000,14,0,18,1217
+_NDP_custom-call.191_0,0x18000,20,3,27,27909
+_NDP_custom-call.192_0,0x3000,14,0,18,1256
+_NDP_custom-call.194_0,0x2b0000,3,1,2,151856
+_NDP_custom-call.195_0,0x2e0000,5,1,4,158727
+_NDP_custom-call.197_0,0x2e0000,5,1,4,160223
+_NDP_custom-call.198_0,0x2b0000,5,1,4,152024
+_NDP_custom-call.199_0,0x2b0000,5,1,4,152723
+_NDP_custom-call.200_0,0x2e0000,5,1,4,161245
+_NDP_custom-call.201_0,0x2b0000,5,1,4,151427
+_NDP_custom-call.203_0,0x2b0000,5,1,4,150837
+_NDP_custom-call.204_0,0x1cc000,28,3,32,0
+_NDP_custom-call.205_0,0x300000,2,1,2,141638
+_NDP_custom-call.206_0,0x300000,2,1,2,141752
+_NDP_custom-call.207_0,0x300000,2,1,2,141638
+_NDP_custom-call.208_0,0x300000,2,1,2,141643
+_NDP_custom-call.209_0,0x200,148,18,167,1371
+_NDP_custom-call.9_1_NdpEwiseFusedSeq$fusion.8,0x18000,2,1,1,NOT FOUND

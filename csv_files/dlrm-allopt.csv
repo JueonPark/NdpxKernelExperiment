@@ -1,18 +1,17 @@
-NAME,LINES,SHAPE,CYCLE
-_NDP_custom-call_0,0,,NOT FOUND
-_NDP_custom-call.15_0,0,,NOT FOUND
-_NDP_custom-call.16_0,0,,NOT FOUND
-_NDP_custom-call.17_0,0,,NOT FOUND
-_NDP_custom-call.18_0,0,,NOT FOUND
-_NDP_custom-call.19_0,0,,NOT FOUND
-_NDP_custom-call.20_0,0,,NOT FOUND
-_NDP_custom-call.21_0,0,,NOT FOUND
-_NDP_custom-call.22_0,0,,NOT FOUND
-_NDP_custom-call.23_0,0,,NOT FOUND
-_NDP_custom-call.24_0,0,,NOT FOUND
-_NDP_custom-call.25_0,0,,NOT FOUND
-_NDP_custom-call.26_0,0,,NOT FOUND
-_NDP_custom-call.27_0,0,,NOT FOUND
-_NDP_custom-call.28_0,0,,NOT FOUND
-_NDP_custom-call.29_0,0,,NOT FOUND
-_ON_THE_FLY_READ_custom-call.4_0_NdpEwiseFusedSeq$custom-call.1.traceg,0,,NOT FOUND
+NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE
+_NDP_custom-call_0,0x20,3,1,12,423
+_NDP_custom-call.15_0,0x200,2,1,5,371
+_NDP_custom-call.16_0,0x80000,3,2,15,81123
+_NDP_custom-call.17_0,0x400,3,2,36,666
+_NDP_custom-call.18_0,0x40000,3,2,15,41195
+_NDP_custom-call.19_0,0x4000,1,1,2,1047
+_NDP_custom-call.20_0,0x4000,1,1,0,1044
+_NDP_custom-call.21_0,0x4000,1,1,0,1044
+_NDP_custom-call.22_0,0x400,3,0,454,2008
+_NDP_custom-call.23_0,0x20,4,1,13,447
+_NDP_custom-call.24_0,0x20,2,1,5,397
+_NDP_custom-call.25_0,0x20,2,1,1,342
+_NDP_custom-call.26_0,0x40000,1,1,2,12089
+_NDP_custom-call.27_0,0x80000,3,2,13,76906
+_NDP_custom-call.28_0,0x40000,1,1,0,12087
+_NDP_custom-call.29_0,0x80000,1,1,0,23863
