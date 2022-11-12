@@ -25,6 +25,9 @@ mkdir -p $NUMBERING_RESULT_DIR
 mkdir -p $ALLOPT_RESULT_DIR
 
 for item in `ls $NOOPT_TRACE_DIR`; do
+  if [[ $item == *"_ON_THE_FLY_"* ]]; then
+    continue
+  fi
   RESULT_DIR=$NOOPT_RESULT_DIR/$item
   mkdir -p $RESULT_DIR/output
   echo -e "#!/bin/bash\
@@ -35,6 +38,9 @@ for item in `ls $NOOPT_TRACE_DIR`; do
 done
 
 for item in `ls $MEMORY_TRACE_DIR`; do
+  if [[ $item == *"_ON_THE_FLY_"* ]]; then
+    continue
+  fi
   RESULT_DIR=$MEMORY_RESULT_DIR/$item
   mkdir -p $RESULT_DIR/output
   echo -e "#!/bin/bash\
@@ -45,6 +51,9 @@ for item in `ls $MEMORY_TRACE_DIR`; do
 done
 
 for item in `ls $NUMBERING_TRACE_DIR`; do
+  if [[ $item == *"_ON_THE_FLY_"* ]]; then
+    continue
+  fi
   RESULT_DIR=$NUMBERING_RESULT_DIR/$item
   mkdir -p $RESULT_DIR/output
   echo -e "#!/bin/bash\
@@ -55,6 +64,9 @@ for item in `ls $NUMBERING_TRACE_DIR`; do
 done
 
 for item in `ls $ALLOPT_TRACE_DIR`; do
+  if [[ $item == *"_ON_THE_FLY_"* ]]; then
+    continue
+  fi
   RESULT_DIR=$ALLOPT_RESULT_DIR/$item
   mkdir -p $RESULT_DIR/output
   echo -e "#!/bin/bash\

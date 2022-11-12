@@ -1,2 +1,12 @@
 NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE
+_NDP_custom-call_0,0x20,1,1,1,NOT FOUND
+_NDP_custom-call.1_0,0x4000,2,1,2,NOT FOUND
+_NDP_custom-call.2_0,0x20,2,1,1,NOT FOUND
+_NDP_custom-call.3_0,0x20,4,2,5,NOT FOUND
+_NDP_custom-call.4_0,0x3b00,3,1,7,NOT FOUND
+_NDP_custom-call.5_0,0x162000,6,1,7,NOT FOUND
+_NDP_custom-call.6_0,0x162000,4,1,5,NOT FOUND
+_NDP_custom-call.7_0,0x162000,3,1,3,NOT FOUND
+_NDP_custom-call.8_0,0x162000,3,1,3,NOT FOUND
+_NDP_custom-call.9_0,0x162000,3,1,4,NOT FOUND
 output,,0,0,-1,NOT FOUND
