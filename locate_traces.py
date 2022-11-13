@@ -19,11 +19,13 @@ for opt in optimizations:
   for kernel in kernels:
     if "_ON_THE_FLY_" in kernel:
       os.remove(os.path.join(trace_path, kernel))
-      continue
+      continue 
     if "_NDP_" not in kernel:
       continue
     kernel_opt_name = kernel.split(".traceg_")[1]
     if opt in kernel_opt_name:
       new_kernel_name = kernel.split("_" + opt)[0]
+      if "$" in new_kernel_name:
+        new_kernel_name = kernel.split("$")[0] + ".traceg"
       new_kernel_path = os.path.join(opt_trace_path, new_kernel_name)
       shutil.move(os.path.join(trace_path, kernel), new_kernel_path)
