@@ -1,12 +1,12 @@
 NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE,LINES
-_NDP_custom-call_0,0x20,1,1,1,335,6
-_NDP_custom-call.1_0,0x4000,2,1,1,2296,9
-_NDP_custom-call.2_0,0x20,2,1,1,340,7
-_NDP_custom-call.3_0,0x20,4,2,4,368,14
-_NDP_custom-call.4_0,0x3b00,3,1,6,2186,15
-_NDP_custom-call.5_0,0x162000,6,1,6,229610,18
-_NDP_custom-call.6_0,0x162000,4,1,4,197459,14
-_NDP_custom-call.7_0,0x162000,3,1,2,187447,11
-_NDP_custom-call.8_0,0x162000,3,1,2,187821,11
-_NDP_custom-call.9_0,0x162000,3,1,2,199332,12
-output,,0,0,-1,NOT FOUND
+_NDP_custom-call_0,32,1,1,1,335,6
+_NDP_custom-call.1_0,16384,2,1,1,2296,9
+_NDP_custom-call.2_0,32,2,1,1,340,7
+_NDP_custom-call.3_0,32,4,2,4,368,14
+_NDP_custom-call.4_0,15104,3,1,6,2186,15
+_NDP_custom-call.5_0,1449984,6,1,6,229610,18
+_NDP_custom-call.6_0,1449984,4,1,4,197459,14
+_NDP_custom-call.7_0,1449984,3,1,2,187447,11
+_NDP_custom-call.8_0,1449984,3,1,2,187821,11
+_NDP_custom-call.9_0,1449984,3,1,2,199332,12
+output,0,0,0,-1,NOT FOUND

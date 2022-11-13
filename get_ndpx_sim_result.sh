@@ -40,6 +40,7 @@ do
     LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
     LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
     SHAPE=`cat $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($3)}'`
+    SHAPE=$(( SHAPE ))
 
     pushd $NOOPT_RESULT_DIR/$line/
     CYCLE_CNT=`cat GPU_0.out | grep -c "tot_sim_cycle"`
@@ -86,6 +87,7 @@ do
     LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
     LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
     SHAPE=`cat $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($3)}'`
+    SHAPE=$(( SHAPE ))
 
     pushd $MEMORY_RESULT_DIR/$line/
     CYCLE_CNT=`cat GPU_0.out | grep -c "tot_sim_cycle"`
@@ -132,6 +134,7 @@ do
     LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
     LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
     SHAPE=`cat $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($3)}'`
+    SHAPE=$(( SHAPE ))
 
     pushd $NUMBERING_RESULT_DIR/$line/
     CYCLE_CNT=`cat GPU_0.out | grep -c "tot_sim_cycle"`
@@ -178,6 +181,7 @@ do
     LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
     LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
     SHAPE=`cat $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($3)}'`
+    SHAPE=$(( SHAPE ))
 
     pushd $ALLOPT_RESULT_DIR/$line/
     CYCLE_CNT=`cat GPU_0.out | grep -c "tot_sim_cycle"`
