@@ -23,7 +23,7 @@ ALLOPT_CSV_PATH=$CSV_FILES/$MODEL-allopt.csv
 
 SIMD=8
 
-echo "NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE" > $NOOPT_CSV_PATH
+echo "NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE,LINES" > $NOOPT_CSV_PATH
 ls $NOOPT_RESULT_DIR | while read line 
 do
     TARGET_TRACE=$NOOPT_TRACE_DIR/$line/GPU_0/$line"*"
@@ -34,7 +34,11 @@ do
     INPUT=$((INPUT / SIMD))
     OUTPUT=`grep -o -i STGG $TARGET_TRACE | wc -l`
     OUTPUT=$((OUTPUT / SIMD))
-    NUM_OP=$(( NUM_OP - INPUT - OUTPUT ))
+    STMS=`grep -o -i STM $TARGET_TRACE | wc -l`
+    STMS=$(( STMS / SIMD ))
+    NUM_OP=$(( NUM_OP - INPUT - OUTPUT - STMS ))
+    LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
+    LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
     SHAPE=`cat $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($3)}'`
 
     pushd $NOOPT_RESULT_DIR/$line/
@@ -60,12 +64,12 @@ do
         if [ -n "$RUNNING" ]; then
             echo "POSSIBLE DEADLOCK $line"
         fi
-        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,$(( CYCLE2 - CYCLE )) >> $NOOPT_CSV_PATH ;
+        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,$(( CYCLE2 - CYCLE )),$(( LINE_END - LINE_START )) >> $NOOPT_CSV_PATH ;
     fi
     popd
 done
 
-echo "NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE" > $MEMORY_CSV_PATH
+echo "NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE,LINES" > $MEMORY_CSV_PATH
 ls $MEMORY_RESULT_DIR | while read line 
 do
     TARGET_TRACE=$MEMORY_TRACE_DIR/$line/GPU_0/$line"*"
@@ -76,7 +80,11 @@ do
     INPUT=$((INPUT / SIMD))
     OUTPUT=`grep -o -i STGG $TARGET_TRACE | wc -l`
     OUTPUT=$((OUTPUT / SIMD))
-    NUM_OP=$(( NUM_OP - INPUT - OUTPUT ))
+    STMS=`grep -o -i STM $TARGET_TRACE | wc -l`
+    STMS=$(( STMS / SIMD ))
+    NUM_OP=$(( NUM_OP - INPUT - OUTPUT - STMS ))
+    LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
+    LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
     SHAPE=`cat $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($3)}'`
 
     pushd $MEMORY_RESULT_DIR/$line/
@@ -102,12 +110,12 @@ do
         if [ -n "$RUNNING" ]; then
             echo "POSSIBLE DEADLOCK $line"
         fi
-        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,$(( CYCLE2 - CYCLE )) >> $MEMORY_CSV_PATH ;
+        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,$(( CYCLE2 - CYCLE )),$(( LINE_END - LINE_START )) >> $MEMORY_CSV_PATH ;
     fi
     popd
 done
 
-echo "NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE" > $NUMBERING_CSV_PATH
+echo "NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE,LINES" > $NUMBERING_CSV_PATH
 ls $NUMBERING_RESULT_DIR | while read line 
 do
     TARGET_TRACE=$NUMBERING_TRACE_DIR/$line/GPU_0/$line"*"
@@ -118,7 +126,11 @@ do
     INPUT=$((INPUT / SIMD))
     OUTPUT=`grep -o -i STGG $TARGET_TRACE | wc -l`
     OUTPUT=$((OUTPUT / SIMD))
-    NUM_OP=$(( NUM_OP - INPUT - OUTPUT ))
+    STMS=`grep -o -i STM $TARGET_TRACE | wc -l`
+    STMS=$(( STMS / SIMD ))
+    NUM_OP=$(( NUM_OP - INPUT - OUTPUT - STMS ))
+    LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
+    LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
     SHAPE=`cat $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($3)}'`
 
     pushd $NUMBERING_RESULT_DIR/$line/
@@ -144,12 +156,12 @@ do
         if [ -n "$RUNNING" ]; then
             echo "POSSIBLE DEADLOCK $line"
         fi
-        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,$(( CYCLE2 - CYCLE )) >> $NUMBERING_CSV_PATH ;
+        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,$(( CYCLE2 - CYCLE )),$(( LINE_END - LINE_START )) >> $NUMBERING_CSV_PATH ;
     fi
     popd
 done
 
-echo "NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE" > $ALLOPT_CSV_PATH
+echo "NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE,LINES" > $ALLOPT_CSV_PATH
 ls $ALLOPT_RESULT_DIR | while read line 
 do
     TARGET_TRACE=$ALLOPT_TRACE_DIR/$line/GPU_0/$line"*"
@@ -160,7 +172,11 @@ do
     INPUT=$((INPUT / SIMD))
     OUTPUT=`grep -o -i STGG $TARGET_TRACE | wc -l`
     OUTPUT=$((OUTPUT / SIMD))
-    NUM_OP=$(( NUM_OP - INPUT - OUTPUT ))
+    STMS=`grep -o -i STM $TARGET_TRACE | wc -l`
+    STMS=$(( STMS / SIMD ))
+    NUM_OP=$(( NUM_OP - INPUT - OUTPUT - STMS ))
+    LINE_START=`cat -n $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($1)}'`
+    LINE_END=`cat -n $TARGET_TRACE | grep "EXIT" | head -n1 | awk '{print($1)}'`
     SHAPE=`cat $TARGET_TRACE | grep "SET_FILTER" | head -n1 | awk '{print($3)}'`
 
     pushd $ALLOPT_RESULT_DIR/$line/
@@ -186,7 +202,7 @@ do
         if [ -n "$RUNNING" ]; then
             echo "POSSIBLE DEADLOCK $line"
         fi
-        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,$(( CYCLE2 - CYCLE )) >> $ALLOPT_CSV_PATH ;
+        echo $line,$SHAPE,$INPUT,$OUTPUT,$NUM_OP,$(( CYCLE2 - CYCLE )),$(( LINE_END - LINE_START )) >> $ALLOPT_CSV_PATH ;
     fi
     popd
 done
