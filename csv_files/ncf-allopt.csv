@@ -1,0 +1,7 @@
+NAME,SHAPE,INPUT,OUTPUT,OPS,CYCLE,LINES
+_NDP_custom-call.10_0,32,1,1,4,395,10
+_NDP_custom-call.11_0,4096,3,2,13,892,24
+_NDP_custom-call.13_0,256,1,1,1,309,8
+_NDP_custom-call.14_0,32,1,1,11,406,16
+_NDP_custom-call.8_0,512,6,3,14,509,26
+_NDP_custom-call.9_0,256,5,2,39,609,54
