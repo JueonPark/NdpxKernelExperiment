@@ -22,7 +22,10 @@ for opt in optimizations:
       continue 
     if "_NDP_" not in kernel:
       continue
-    kernel_opt_name = kernel.split(".traceg_")[1]
+    try:
+      kernel_opt_name = kernel.split(".traceg_")[1]
+    except:
+      kernel_opt_name = "allopt"
     if opt in kernel_opt_name:
       new_kernel_name = kernel.split("_" + opt)[0]
       if "$" in new_kernel_name:

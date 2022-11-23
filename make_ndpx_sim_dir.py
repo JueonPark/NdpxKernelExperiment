@@ -2,6 +2,7 @@ import os
 import sys
 import shutil
 import argparse
+from tqdm import tqdm
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-m', '--model', type=str, help="Model name", required=True)
@@ -18,7 +19,7 @@ for opt in optimizations:
   kernel_path = os.path.join(current_path, "traces", args.model, opt)
   kernels = os.listdir(kernel_path)
 
-  for kernel in kernels:
+  for kernel in tqdm(kernels):
     if "_ON_THE_FLY_" in kernel:
       continue
     kerneldir_name = kernel.split(".traceg")[0]
